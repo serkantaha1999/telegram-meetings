@@ -7,6 +7,8 @@ gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "jsbundling-rails"
+gem 'geocoder'
+gem 'telegram-bot-ruby'
 gem "cssbundling-rails"
 gem 'rack-cors'
 gem 'carrierwave', '~> 3.0'

@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_211004) do
 
   create_table "meetings", force: :cascade do |t|
     t.string "code"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

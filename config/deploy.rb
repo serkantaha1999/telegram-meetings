@@ -24,17 +24,17 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w[~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
-set :linked_files, %w[config/master.key]
 
 ## Defaults:
 # set :scm,           :git
-set :branch, :master
+set :branch, :main
 # set :format,        :pretty
 # set :log_level,     :debug
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
 # set :linked_files, %w{config/database.yml}
+set :linked_files, %w[config/master.key]
 append :linked_dirs, 'public/uploads'
 
 namespace :puma do
@@ -50,9 +50,24 @@ namespace :puma do
 end
 
 namespace :deploy do
-  desc 'Make sure local git is in sync with remote.'
+  desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
+      unless `git rev-parse #{fetch(:branch)}` == `git rev-parse origin/#{fetch(:branch)}`
+        Rails.logger.debug "WARNING: HEAD is not the same as origin/#{fetch(:branch)}"
+        Rails.logger.debug "Run `git push` to sync changes."
+        exit
+      end
+    end
+  end
+
+  namespace :check do
+    before :linked_files, :set_master_key do
+      on roles(:app), in: :sequence, wait: 10 do
+        unless test("[ -f #{shared_path}/config/master.key ]")
+          upload! 'config/master.key', "#{shared_path}/config/master.key"
+        end
+      end
     end
   end
 
@@ -71,9 +86,9 @@ namespace :deploy do
     end
   end
 
-  desc 'reload the database with seed data'
+  desc "Reload the database with seed data"
   task :seed do
-    puts "\n=== Seeding Database ===\n"
+    Rails.logger.debug "\n=== seeding database ===\n"
     on primary :db do
       within current_path do
         with rails_env: fetch(:stage) do
@@ -83,8 +98,7 @@ namespace :deploy do
     end
   end
 
-  before :starting,     :check_revision
-  # after 'deploy:updated', 'webpacker:precompile'
-  after  :finishing,    :compile_assets
-  after  :finishing,    :cleanup
+  before :starting,  :check_revision
+  after  :finishing, :compile_assets
+  after  :finishing, :cleanup
 end

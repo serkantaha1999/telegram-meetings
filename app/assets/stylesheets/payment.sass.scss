@@ -1,0 +1,71 @@
+@use "sass:math";
+.payment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(13);
+  }
+  &__info {
+    padding-bottom: rem(15);
+    border-bottom: rem(1) solid #D9D9D9
+  }
+  &__total {
+    border: rem(1) solid #00000026;
+    background: #FFFFFF;
+    border-radius: rem(15);
+    padding: rem(32) rem(34);
+    color: $blackColor;
+  }
+  &__sum {
+    font-weight: 600;
+    font-size: rem(32);
+    line-height: math.div(38.73 , 32);
+    &:not(:last-child) {
+        margin-bottom: rem(5);
+     }
+  }
+  &__text {
+    font-size: rem(16);
+    line-height: math.div(19.36 , 16);
+    color: #0000008C;
+  }
+  &__list {
+    padding-top: rem(25);
+    padding-bottom: rem(16);
+    display: flex;
+    flex-direction: column;
+    gap: rem(15);
+  }
+  &__point {
+    list-style-type: "—";
+    padding-left: rem(5);
+  }
+  &__button {
+    padding: rem(10) rem(32);
+    @media (max-width:$mobileSmall) {
+      width: 100%;
+    }
+  }
+  &__method {
+    border: rem(1) solid #00000026;
+    background: #FFFFFF;
+    border-radius: rem(15);
+    padding: rem(28);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(16);
+    > span {
+      font-weight: 500;
+      font-size: rem(20);
+      line-height: math.div(24.2 , 20);
+    }
+    > img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.privacy {
+  &__body {
+    border: rem(1) solid #00000040;
+    background: $whiteColor;
+    padding: rem(35);
+    border-radius: rem(15);
+  }
+  ul, ol {
+    list-style-type: circle;
+  }
+}

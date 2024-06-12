@@ -1,0 +1,147 @@
+//====================================================================================================
+@use "sass:math";
+.header {
+  &__body {
+    padding: rem(25) 0 rem(44) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(12);
+  }
+  &__logo {
+    position: relative;
+    z-index: 2;
+    @media (max-width:em(830)) {
+      flex: 1 1 auto;
+    }
+  }
+  &__block {
+    padding: rem(6) rem(14);
+    border-radius: rem(35);
+    display: flex;
+    align-items: center;
+    gap: rem(13);
+    background: #00000008;
+    border: 1px solid #00000008;
+    position: relative;
+    z-index: 2;
+    svg {
+      transition: color 300ms ease-in-out;
+      @media (any-hover: hover){
+          &:hover {
+              color: $greenColor;
+          }
+      }
+    }
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    @media (max-width:em(830)) {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      padding-top: rem(200);
+      padding-bottom: rem(20);
+      gap: rem(30);
+      flex-direction: column;
+      overflow-y: auto;
+      transition: left 300ms ease-in-out;
+      > li > a {
+        font-size: rem(28);
+      }
+    }
+    &::before {
+      content:'';
+      width: 100%;
+      background: #ffffff;
+      height: rem(195);
+      position: fixed;
+      top: 0;
+      left: -100%;
+      transition: left 300ms ease-in-out;
+    }
+    &._active {
+      left: 0;
+      &::before {
+        left: 0;
+      }
+    }
+  }
+}
+//====================================================================================================
+
+//Burger
+.icon-menu {
+  display: none;
+  @media (max-width: em(830))  {
+    z-index: 10;
+    display: block;
+    position: relative;
+    width: rem(25);
+    height: rem(20);
+    cursor: pointer;
+    span,
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      height: 10%;
+      width: 100%;
+      transition: all .3s ease-in;
+      background-color: $mainColor;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: 50%;
+      transform: scale(1) translate(0px, -50%);
+    }
+
+    &._active span {
+      transform: scale(0) translate(0px, -50%);
+    }
+
+    &._active::before {
+      top: 50%;
+      transform: rotate(-45deg) translate(0px, -50%);
+    }
+
+    &._active::after {
+      bottom: 50%;
+      transform: rotate(45deg) translate(0px, 50%);
+    }
+  }
+}
+
+.header-top {
+  padding: rem(17) 0 rem(19) 0;
+  background: $lightGreenColor;
+  text-align: center;
+  &__text {
+    font-family: "SF PRO DISPLAY", sans-serif;
+    line-height: math.div(19.09 , 16);
+    display: inline-block;
+    background: #FFFFFF80;
+    padding: rem(6) rem(8);
+    border-radius: rem(100);
+  }
+}

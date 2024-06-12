@@ -1,0 +1,75 @@
+@use "sass:math";
+.link {
+  font-family: "SF PRO DISPLAY", sans-serif;
+  line-height: math.div(21.8 , 18);
+  color: $blackColor;
+  transition: color 200ms ease-in-out;
+  @media (any-hover: hover){
+      &:hover {
+          color: $greenColor;
+      }
+  }
+}
+
+.button {
+  display: inline-block;
+  font-size: rem(20);
+  line-height: math.div(24.2 , 20);
+  padding: rem(10);
+  border-radius: rem(100);
+  transition: all 400ms ease-in-out;
+  &-green {
+    color: $whiteColor;
+    background-color: $greenColor;
+    @media (any-hover: hover){
+        &:hover {
+            background: $lightGreenColor;
+        }
+    }
+  }
+  &-light {
+    border: rem(1) solid #0000008C;
+    color: #0000008C;
+    @media (any-hover: hover){
+        &:hover {
+          color: $whiteColor;
+          background: #0000008C;
+        }
+    }
+  ;
+  }
+}
+
+.page-title {
+  font-weight: 600;
+  @include adaptiveValue("font-size", 40, 30);
+  line-height: math.div(48.41 , 40);
+}
+
+.section-title {
+  font-weight: 600;
+  @include adaptiveValue("font-size", 32, 25);
+  line-height: math.div(38.73 , 32);
+}
+
+.success-message,
+.error-message {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #dff0d8;
+  border: 1px solid #3c763d;
+  color: #3c763d;
+  margin: rem(35) 0;
+}
+
+.error-message {
+  background-color: #f2dede;
+  border-color: #a94442;
+  color: #a94442;
+}
+
+.success-message__text,
+.error-message__text {
+  margin: 0;
+}
+

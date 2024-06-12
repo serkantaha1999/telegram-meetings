@@ -1,0 +1,49 @@
+//====================================================================================================
+.footer {
+  @include adaptiveValue("padding-top", 49, 30);
+  @include adaptiveValue("padding-bottom", 185, 100);
+  background-color: $footerBackground;
+  &__container {
+    max-width: rem(1300);
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: rem(15);
+    @media (max-width:$mobile) {
+      flex-direction: column;
+      gap: rem(25);
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    @media (max-width:$mobile) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+  &__list {
+    > li > a {
+      color: $whiteColor;
+    }
+  }
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: rem(13);
+    > a {
+      color: $whiteColor;
+      transition: color 300ms ease-in-out;
+      @media (any-hover: hover){
+        &:hover {
+          color: $greenColor;
+        }
+      }
+
+    }
+  }
+}
+//====================================================================================================

@@ -4,7 +4,7 @@ import Modal from "./ui/Modal";
 import Logo from "./Logo";
 import DatePicker from "./DatePicker";
 
-const SubscribeAlertModal = ({openNewModal, options}) => {
+const DatePickerModal = ({openNewModal, options}) => {
     const onClick = () => {
         options.onClose()
         openNewModal()
@@ -30,4 +30,4 @@ const SubscribeAlertModal = ({openNewModal, options}) => {
     );
 };
 
-export default SubscribeAlertModal;
+export default DatePickerModal;

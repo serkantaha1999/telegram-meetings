@@ -5,7 +5,7 @@ import DownloadButton from "./DownloadButton";
 import axios from "axios";
 import {handleDownload} from "../utils/utils";
 
-const JoinModal = (props) => {
+const JoinModal = ({openNewModal, options}) => {
     const [code, setCode] = useState("")
     const [response, setResponse] = useState({
         data: {
@@ -13,9 +13,8 @@ const JoinModal = (props) => {
         }
     })
     const onClose = () => {
-        props.onClose()
+        options.onClose()
     }
-
     const data = {
         value: code,
         platform: navigator.platform || null,
@@ -26,8 +25,8 @@ const JoinModal = (props) => {
             let response = await axios.post("/telegram_send_message", data)
             setResponse(response)
             if (response.data.success) {
-                props.onClose()
-                handleDownload();
+                options.onClose()
+                handleDownload(openNewModal);
             }
         } catch (err) {
             alert(err)
@@ -41,12 +40,12 @@ const JoinModal = (props) => {
         }
     };
     useEffect(() => {
-        if (!props.open) {
+        if (!options.open) {
             setCode("")
         }
-    }, [props.open]);
+    }, [options.open]);
     return (
-        <Modal {...props}>
+        <Modal {...options}>
             <Modal.Logo>
                 <button onClick={onClose} className="popup__close"/>
                 <Logo classnames={"popup__logo"} imageUrl={"/images/logo.svg"}/>
@@ -58,7 +57,7 @@ const JoinModal = (props) => {
                     </label>
                 </form>
                 <p className="popup__text">Enter your Meeting ID</p>
-                {response && !response.data.success && <p className={"error"}>{response.data.error}</p>}
+                {!response.data.success && <p className={"error"}>{response.data.error}</p>}
             </Modal.Body>
             <Modal.Footer>
                 <div className="popup__buttons">

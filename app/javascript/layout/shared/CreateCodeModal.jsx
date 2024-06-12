@@ -5,11 +5,11 @@ import {CopyToClipboard} from "react-copy-to-clipboard/src";
 import DownloadButton from "./DownloadButton";
 import {handleDownload} from "../utils/utils";
 
-const CreateCodeModal = (props) => {
+const CreateCodeModal = ({openNewModal, options}) => {
     const [code, setCode] = useState("");
     const onClick = () => {
-        props.onClose()
-        handleDownload()
+        options.onClose()
+        handleDownload(openNewModal)
     }
     useEffect(() => {
         setCode(generateCode());
@@ -19,9 +19,9 @@ const CreateCodeModal = (props) => {
         return `G${randomNumber}`;
     };
     return (
-        <Modal {...props}>
+        <Modal {...options}>
             <Modal.Logo>
-                <button onClick={props.onClose} className="popup__close"/>
+                <button onClick={options.onClose} className="popup__close"/>
                 <Logo classnames={"popup__logo"} imageUrl={"/images/logo.svg"}/>
             </Modal.Logo>
             <Modal.Body>

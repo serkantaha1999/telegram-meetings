@@ -144,6 +144,9 @@
 			text-decoration: underline;
 		}
 	}
+	&__content {
+		padding-top: rem(30);
+	}
 	&__close {
 		position: absolute;
 		right: rem(38);

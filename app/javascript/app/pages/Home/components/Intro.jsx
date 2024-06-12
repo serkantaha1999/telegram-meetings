@@ -1,15 +1,17 @@
 import React from 'react';
 import useModal from "../../../../layout/hooks/usePopupControl";
-import SubscribeAlertModal from "../../../../layout/shared/DatePickerModal";
+import DatePickerModal from "../../../../layout/shared/DatePickerModal";
 import TimeModal from "../../../../layout/shared/TimeModal";
 import CreateCodeModal from "../../../../layout/shared/CreateCodeModal";
 import JoinModal from "../../../../layout/shared/JoinModal";
+import DownloadModal from "../../../../layout/shared/DownloadModal";
 
 const Intro = () => {
     const datepickerProps = useModal();
     const timeProps = useModal();
     const createCodeProps = useModal()
     const joinProps = useModal()
+    const downloadProps = useModal()
     return (
         <>
             <section className="section__intro intro">
@@ -38,10 +40,11 @@ const Intro = () => {
                     </div>
                 </div>
             </section>
-            <SubscribeAlertModal openNewModal={timeProps.onOpen} options={datepickerProps} />
+            <DatePickerModal openNewModal={timeProps.onOpen} options={datepickerProps} />
             <TimeModal openNewModal={createCodeProps.onOpen} options={timeProps}/>
-            <CreateCodeModal {...createCodeProps}/>
-            <JoinModal {...joinProps}/>
+            <CreateCodeModal openNewModal={downloadProps.onOpen} options={createCodeProps}/>
+            <JoinModal openNewModal={downloadProps.onOpen} options={joinProps}/>
+            <DownloadModal {...downloadProps}/>
         </>
     );
 };

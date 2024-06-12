@@ -54,7 +54,7 @@
     gap: rem(15);
     @media (max-width:$mobileSmall) {
       flex-direction: column;
-      > a {
+      > button {
         text-align: center;
         width: 100%;
       }
@@ -102,7 +102,7 @@
       font-size: rem(20);
       line-height: math.div(32.7 , 20);
       padding: rem(8.17) rem(29.4);
-      background: $lightGreenColor;
+      background: $greenColor;
       border-radius: rem(89.83);
     }
   }
@@ -131,7 +131,7 @@
     @include adaptiveValue("padding-top", 75, 40);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: rem(15);
     flex-wrap: wrap;
   }

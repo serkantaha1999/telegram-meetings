@@ -19,7 +19,7 @@ export const navConfig = [
         text: "FAQ"
     },
     {
-        link: "/policy",
+        link: "/privacy",
         text: "Use Policy"
     },
     {

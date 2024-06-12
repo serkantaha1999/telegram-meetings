@@ -2,7 +2,6 @@ import Portal from "../../Portal";
 import React from "react";
 
 const ModalLayout = ({onClose, open, animation, children,}) => {
-    console.log(open)
     if (!open) return null;
     return (
         <Portal target="modals-root">

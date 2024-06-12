@@ -10,7 +10,7 @@
   }
   &__logo {
     position: relative;
-    z-index: 2;
+    z-index: 6;
     @media (max-width:em(830)) {
       flex: 1 1 auto;
     }
@@ -24,7 +24,7 @@
     background: #00000008;
     border: 1px solid #00000008;
     position: relative;
-    z-index: 2;
+    z-index: 6;
     svg {
       transition: color 300ms ease-in-out;
       @media (any-hover: hover){
@@ -53,6 +53,7 @@
       gap: rem(30);
       flex-direction: column;
       overflow-y: auto;
+      z-index: 4;
       transition: left 300ms ease-in-out;
       > li > a {
         font-size: rem(28);

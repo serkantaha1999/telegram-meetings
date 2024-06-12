@@ -12,4 +12,7 @@ test:
   database: tg_app_test
 
 production:
-  database: tg_app_production
+  <<: *default
+  database: tg_meetings_prod
+  username: main_user
+  password: 12345678

@@ -3,11 +3,13 @@ import Modal from "./ui/Modal";
 import Logo from "./Logo";
 import {CopyToClipboard} from "react-copy-to-clipboard/src";
 import DownloadButton from "./DownloadButton";
+import {handleDownload} from "../utils/utils";
 
 const CreateCodeModal = (props) => {
     const [code, setCode] = useState("");
-    const onClose = () => {
+    const onClick = () => {
         props.onClose()
+        handleDownload()
     }
     useEffect(() => {
         setCode(generateCode());
@@ -19,7 +21,7 @@ const CreateCodeModal = (props) => {
     return (
         <Modal {...props}>
             <Modal.Logo>
-                <button onClick={onClose} className="popup__close"/>
+                <button onClick={props.onClose} className="popup__close"/>
                 <Logo classnames={"popup__logo"} imageUrl={"/images/logo.svg"}/>
             </Modal.Logo>
             <Modal.Body>
@@ -36,7 +38,7 @@ const CreateCodeModal = (props) => {
                     <CopyToClipboard text={code}>
                         <button className="button button-green">Copy</button>
                     </CopyToClipboard>
-                    <DownloadButton onClose={props.onClose} theme={"light"} text={"Join"}/>
+                    <DownloadButton onClick={onClick} theme={"light"} text={"Join"}/>
                 </div>
             </Modal.Footer>
         </Modal>

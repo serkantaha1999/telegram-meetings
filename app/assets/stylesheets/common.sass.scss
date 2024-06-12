@@ -52,24 +52,10 @@
   line-height: math.div(38.73 , 32);
 }
 
-.success-message,
-.error-message {
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #dff0d8;
-  border: 1px solid #3c763d;
-  color: #3c763d;
-  margin: rem(35) 0;
+.error {
+  color: red;
+  padding: rem(8) 0;
+  font-weight: 600;
 }
 
-.error-message {
-  background-color: #f2dede;
-  border-color: #a94442;
-  color: #a94442;
-}
-
-.success-message__text,
-.error-message__text {
-  margin: 0;
-}
 

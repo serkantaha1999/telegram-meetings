@@ -32,7 +32,7 @@ const faqAccordionConfig = [
     }
 ]
 
-const Faq = () => {
+const Faq = ({children}) => {
     const [accordionActive, setAccordionActive] = React.useState(null)
     return (
         <section className="section__faq faq">
@@ -41,12 +41,7 @@ const Faq = () => {
                     <div className="faq__info">
                         <h2 className="faq__title section-title">Faq</h2>
                     </div>
-                    <div className="faq__download download-faq">
-                        <h2 className="download-faq__title section-title">Download application</h2>
-                        <p className="download-faq__text item-text">The app is only available on macOS and Windows
-                            devices, adaptation to mobile devices will be available soon</p>
-                        <button className="download-faq__button button button-green">Download ( 1.20 Actual )</button>
-                    </div>
+                    {children}
                     <div className="faq__spollers spollers">
                         {faqAccordionConfig.map((item, id) => {
                             const isOpen = accordionActive === id

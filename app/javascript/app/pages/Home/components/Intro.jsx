@@ -1,17 +1,6 @@
 import React from 'react';
-import useModal from "../../../../layout/hooks/usePopupControl";
-import DatePickerModal from "../../../../layout/shared/DatePickerModal";
-import TimeModal from "../../../../layout/shared/TimeModal";
-import CreateCodeModal from "../../../../layout/shared/CreateCodeModal";
-import JoinModal from "../../../../layout/shared/JoinModal";
-import DownloadModal from "../../../../layout/shared/DownloadModal";
 
-const Intro = () => {
-    const datepickerProps = useModal();
-    const timeProps = useModal();
-    const createCodeProps = useModal()
-    const joinProps = useModal()
-    const downloadProps = useModal()
+const Intro = ({onClickCreate, onClickJoin}) => {
     return (
         <>
             <section className="section__intro intro">
@@ -27,9 +16,9 @@ const Intro = () => {
                                 so we are pleased to present a product that will solve this problem. </p>
                             <p className="intro__competitors">#1 Among competitors within the country</p>
                             <div className="intro__buttons">
-                                <button onClick={datepickerProps.onOpen} className="intro__button button button-green">Create
+                                <button onClick={onClickCreate} className="intro__button button button-green">Create
                                     room</button>
-                                <button onClick={joinProps.onOpen} className="intro__button popup__link button button-light">Join
+                                <button onClick={onClickJoin} className="intro__button popup__link button button-light">Join
                                     room</button>
                             </div>
                         </div>
@@ -40,11 +29,6 @@ const Intro = () => {
                     </div>
                 </div>
             </section>
-            <DatePickerModal openNewModal={timeProps.onOpen} options={datepickerProps} />
-            <TimeModal openNewModal={createCodeProps.onOpen} options={timeProps}/>
-            <CreateCodeModal openNewModal={downloadProps.onOpen} options={createCodeProps}/>
-            <JoinModal openNewModal={downloadProps.onOpen} options={joinProps}/>
-            <DownloadModal {...downloadProps}/>
         </>
     );
 };

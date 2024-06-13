@@ -16,8 +16,8 @@ const useModal = () => {
     };
 
     const handleCloseModal = () => {
-        setAnimation("out");
         setIsOpen(false)
+        setAnimation("out");
         document.body.style.overflow = "auto";
     };
 

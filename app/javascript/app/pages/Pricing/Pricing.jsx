@@ -1,5 +1,6 @@
 import React from 'react';
 import Faq from "../Home/components/Faq";
+import {Link} from "react-router-dom";
 
 const PricingItem = ({ title, price, per, points, isPopular }) => (
     <div className="pricing__item pricing-item">
@@ -14,7 +15,7 @@ const PricingItem = ({ title, price, per, points, isPopular }) => (
                 <li key={index} className="pricing-item__point">{point}</li>
             ))}
         </ul>
-        <button className="pricing-item__button button button-light">Function available in the app</button>
+        <Link to={"/payment"} className="pricing-item__button button button-light">Function available in the app</Link>
     </div>
 );
 

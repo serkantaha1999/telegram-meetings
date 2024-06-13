@@ -1,109 +1,3 @@
-//.popup__fade {
-//	opacity: 0;
-//	visibility: hidden;
-//	transition: opacity 0.8s linear, visibility 0s linear 0.8s; /* Затримка для visibility */
-//	position: relative;
-//	overflow: hidden;
-//	z-index: 9999;
-//	&.open {
-//		opacity: 1;
-//		visibility: visible;
-//		transition-delay: 0s;
-//	}
-//	&::before{
-//		content: '';
-//		background: #1E212C;
-//		opacity: 0.75;
-//		position: fixed;
-//		left: 0;
-//		top: 0;
-//		width: 100%;
-//		height: 100%;
-//		z-index: 9999;
-//	}
-//}
-//.popup__area {
-//	position: absolute;
-//	width: 100%;
-//	height: 100%;
-//	left: 0;
-//	top: 0;
-//
-//}
-//.popup {
-//	position: fixed;
-//	padding: rem(35);
-//	background: #fff;
-////	z-index: 99999;
-//	border-radius: rem(15);
-//	opacity: 1;
-//	width: 100%;
-//	@media (min-width:$mobile){
-//		width: rem(497);
-//		margin-left: rem(-245);
-//		left: 50%;
-//		@include adaptiveValue("top", 151, 50);
-//		&_2 {
-//			margin-left: rem(-170);
-//			width: rem(345);
-//		}
-//		&_3 {
-//			margin-left: rem(-160);
-//			width: rem(301);
-//		}
-//		&_4 {
-//			margin-left: rem(-150);
-//			width: rem(277);
-//		}
-//	}
-//	@media (max-width:$mobile){
-//		height: 100%;
-//	}
-//	@media (min-width:$mobile){
-//		@media (max-height: em(882)){
-//			height: 67%;
-//		}
-//	}
-//	@media (max-width:$mobileSmall) {
-//		padding: rem(35) rem(10);
-//	}
-//	&_2 {
-//		.popup__body {
-//			height: rem(181);
-//		}
-//	}
-//	&_3 {
-//		.popup__body {
-//			height: rem(268);
-//		}
-//	}
-//	&_4 {
-//		.popup__body {
-//			height: rem(239);
-//		}
-//	}
-//	&__body {
-//		height: rem(506);
-//	}
-//	&__content {
-//		display: flex;
-//		flex-direction: column;
-//		justify-content: center;
-//		text-align: center;
-//	}
-
-//	&__text {
-//		color: #0000008C;
-//		line-height: 150%;
-//		&:not(:last-child) {margin-bottom: em(24, 18);}
-//		> a {
-//			cursor: pointer;
-//			color: $greenColor;
-//			text-decoration: underline;
-//		}
-//	}
-//}
-
 .popup {
 	position: fixed;
 	top: 0;
@@ -115,18 +9,20 @@
 	justify-content: center;
 	align-items: flex-start;
 	z-index: 50;
-	transition: all 0.3s ease;
-	opacity: 0;
-	visibility: hidden;
 	overflow-y: auto;
 	overflow-x: hidden;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
 	&.fade-in {
+		animation: fade-in 0.2s ease-out forwards;
 		opacity: 1;
-		visibility: visible;
+		pointer-events: auto;
 	}
 	&.fade-out {
+		animation: fade-out 0.2s ease-out forwards;
 		opacity: 0;
-		visibility: hidden;
+		pointer-events: none;
 	}
 	&__buttons {
 		display: flex;
@@ -194,3 +90,27 @@
 		margin-right: rem(5);
 	}
 }
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+
+
+
+
+

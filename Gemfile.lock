@@ -98,16 +98,9 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano-sidekiq (2.3.1)
-      capistrano (>= 3.9.0)
-      capistrano-bundler
-      sidekiq (>= 6.0)
-    capistrano-yarn (2.0.2)
+    capistrano3-puma (1.2.1)
       capistrano (~> 3.0)
-    capistrano3-puma (6.0.0.beta.1)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (>= 5.1, < 7.0)
+      puma (>= 2.6)
     capybara (3.40.0)
       addressable
       matrix
@@ -300,11 +293,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sidekiq (7.2.4)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      rack (>= 2.2.4)
-      redis-client (>= 0.19.0)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -366,9 +354,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails
   capistrano-rvm
-  capistrano-sidekiq
-  capistrano-yarn
-  capistrano3-puma (>= 5.0)
+  capistrano3-puma
   capybara
   carrierwave (~> 3.0)
   cssbundling-rails

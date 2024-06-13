@@ -46,8 +46,11 @@
 	}
 	&__close {
 		position: absolute;
-		right: rem(20);
-		top: rem(10);
+		right: rem(5);
+		top: rem(27);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: rem(40);
 		height: rem(40);
 		transition: all .1s ease-in;

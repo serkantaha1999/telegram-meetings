@@ -1,4 +1,6 @@
 class TelegramMessagesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     meeting = Meeting.find_by(code: params[:value].downcase)
 

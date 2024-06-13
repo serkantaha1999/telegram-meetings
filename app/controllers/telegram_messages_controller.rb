@@ -11,7 +11,7 @@ class TelegramMessagesController < ApplicationController
       country = 'unknown'
     else
       ip = request.remote_ip
-      result = Geocoder.search(ip_address).first
+      result = Geocoder.search(ip).first
       country = result.present? ? result.country : 'unknown'
     end
 

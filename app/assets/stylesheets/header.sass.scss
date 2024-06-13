@@ -55,7 +55,7 @@
       overflow-y: auto;
       z-index: 4;
       transition: left 300ms ease-in-out;
-      > li > a {
+      > li > a, button {
         font-size: rem(28);
       }
     }

@@ -58,6 +58,9 @@
     justify-content: center;
     align-items: center;
     gap: rem(16);
+    &:nth-child(2) {
+      border: rem(1) solid $greenColor;
+    }
     > span {
       font-weight: 500;
       font-size: rem(20);

@@ -14,10 +14,10 @@
 .select {
 	&__control {
 		background: $whiteColor !important;
-		border: rem(1) solid $mainColor !important;
+		border: none !important;
 		min-height: rem(40) !important;
 		outline: none !important;
-		box-shadow: none !important;
+		box-shadow: 0 0 rem(20) 0 #00000040 !important;
 		width: 100%;
 		.select__value-container {
 			padding: 0 !important;
@@ -59,4 +59,13 @@
 	&__placeholder {
 		margin-left: rem(8) !important;
 	}
+}
+
+
+.select__value-container {
+	width: rem(148) !important;
+}
+
+.select__single-value {
+	text-align: left;
 }

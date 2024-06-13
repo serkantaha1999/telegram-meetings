@@ -11,6 +11,7 @@ import CreateCodeModal from "../../../layout/shared/CreateCodeModal";
 import JoinModal from "../../../layout/shared/JoinModal";
 import DownloadModal from "../../../layout/shared/DownloadModal";
 import DownloadFaq from "./components/DownloadFaq";
+import {Element} from "react-scroll";
 const HomePage = () => {
     const datepickerProps = useModal();
     const timeProps = useModal();
@@ -23,9 +24,11 @@ const HomePage = () => {
             <Advantages/>
             <Security/>
             <SimpleSlider/>
-            <Faq>
-                <DownloadFaq onClickJoin={joinProps.onOpen}/>
-            </Faq>
+            <Element name={"faqBlock"}>
+                <Faq>
+                    <DownloadFaq onClickJoin={joinProps.onOpen}/>
+                </Faq>
+            </Element>
             <DatePickerModal openNewModal={timeProps.onOpen} options={datepickerProps} />
             <TimeModal openNewModal={createCodeProps.onOpen} options={timeProps}/>
             <CreateCodeModal openNewModal={downloadProps.onOpen} options={createCodeProps}/>

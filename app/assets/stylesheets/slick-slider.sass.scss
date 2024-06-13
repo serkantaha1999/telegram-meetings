@@ -80,7 +80,7 @@
 {
   display: none;
   float: left;
-
+  width: rem(150);
   height: 100%;
   min-height: 1px;
 }
@@ -308,8 +308,11 @@
   color: black;
 }
 
-.slick-slide, .slick-slide li {
+
+.ability-slider__slide {
   width: rem(150) !important;
+}
+.slick-slide, .slick-slide li {
   height: rem(150) !important;
   img {
     width: rem(100);

@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 import {useLocation} from "react-router-dom";
 
 
-const Header = () => {
+const Header = ({scrollToBlock}) => {
     const [isBurger, setIsBurger] = useState(false);
     const location = useLocation()
     const onClickToBurger = () => {
@@ -17,6 +17,7 @@ const Header = () => {
         setIsBurger(false)
         document.body.style.overflow = "";
     }, [location]);
+
     return (
         <header id="header" className="header lock-padding">
             <div className="header-top">
@@ -26,12 +27,12 @@ const Header = () => {
             <div className="header__container">
                 <div className="header__body">
                     <Logo imageUrl={"/images/logo.svg"} classnames={"header__logo"}/>
-                    <Navbar isBurger={isBurger} />
+                    <Navbar onClickToBurger={onClickToBurger} scrollToBlock={scrollToBlock} isBurger={isBurger} />
                     <div className="header__block">
-                        <a href="/" className="header__social">
+                        <a href="https://x.com/GatherumApp" className="header__social">
                             <FaXTwitter />
                         </a>
-                        <a href="/" className="header__social">
+                        <a href="https://medium.com/@Gatherum" className="header__social">
                             <RiMediumFill />
                         </a>
                     </div>

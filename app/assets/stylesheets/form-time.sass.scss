@@ -25,7 +25,7 @@
     font-family: "SF PRO DISPLAY", sans-serif;
     outline: none;
     border-radius: rem(5);
-    border: rem(1) solid $mainColor;
+    box-shadow: 0px 0px 20px 0px #00000040;
     width: rem(41);
     height: rem(41);
     display: flex;

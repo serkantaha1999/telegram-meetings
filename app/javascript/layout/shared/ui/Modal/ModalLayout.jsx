@@ -1,7 +1,7 @@
 import Portal from "../../Portal";
 import React from "react";
 
-const ModalLayout = ({onClose, open, animation, children}) => {
+const ModalLayout = ({onClose, open, isBig, children}) => {
     if (!open) return null;
     return (
         <Portal target="modals-root">
@@ -11,7 +11,8 @@ const ModalLayout = ({onClose, open, animation, children}) => {
             >
                 <div
                     onClick={(e) => e.stopPropagation()}
-                    className="popup-content"
+                    className={`popup-content ${isBig && "big"}`}
+
                 >
                     {children}
                 </div>

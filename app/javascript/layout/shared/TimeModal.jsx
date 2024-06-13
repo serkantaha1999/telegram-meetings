@@ -5,10 +5,27 @@ import Select from "react-select";
 import makeAnimated from 'react-select/animated';
 const TimeModal = ({openNewModal, options}) => {
     const selectOptions = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
+        { value: 'AEST', label: 'AEST' },
+        { value: 'AKST', label: 'AKST' },
+        { value: 'AST', label: 'AST' },
+        { value: 'AWST', label: 'AWST' },
+        { value: 'CAT', label: 'CAT' },
+        { value: 'CET', label: 'CET' },
+        { value: 'CST', label: 'CST' },
+        { value: 'EAT', label: 'EAT' },
+        { value: 'EET', label: 'EET' },
+        { value: 'EST', label: 'EST' },
+        { value: 'GMT', label: 'GMT' },
+        { value: 'HAST', label: 'HAST'},
+        { value: 'MSK', label: 'MSK' },
+        { value: 'MST', label: 'MST' },
+        { value: 'NST', label: 'NST' },
+        { value: 'PST', label: 'PST' },
+        { value: 'UTC', label: 'UTC' },
+        { value: 'WAT', label: 'WAT' },
+        { value: 'WET', label: 'WET' }
+    ];
+
     const onClick = () => {
         options.onClose()
         openNewModal()

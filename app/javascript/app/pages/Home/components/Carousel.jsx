@@ -3,30 +3,12 @@ import Slider from "react-slick";
 const Carousel = () => {
     const settings = {
         className: "center",
-        centerMode: true,
         infinite: true,
-        centerPadding: "60px",
         slidesToShow: 9,
         autoplay: true,
-        speed: 500,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                    centerMode: true,
-                    centerPadding: '0'
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    centerMode: true,
-                    centerPadding: '0'
-                }
-            }
-        ]
+        loop: true,
+        swipeToSlide: true,
+        variableWidth: true,
     };
     return (
         <section className="section__ability ability">

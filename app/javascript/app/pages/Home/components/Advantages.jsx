@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Element} from "react-scroll";
 const advantagesConfig = [
     {
         imageUrl: "images/advantage/microphone.svg",
@@ -22,35 +22,37 @@ const advantagesConfig = [
 
 const Advantages = () => {
     return (
-        <section className="section__advantages advantages">
-            <div className="advantages__container">
-                <div className="advantages__body">
-                    <div className="advantages__info">
-                        <h2 className="advantages__title section-title">Advantages of our product</h2>
-                        <p className="advantages__text item-text">Advantages of our product compared to other
-                            competitors.</p>
-                    </div>
-                    <div className="advantages__inner">
-                        {advantagesConfig.map((item) => {
-                            return <div key={item.title} className="advantages__item item-advantages">
-                                <div className="item-advantages__info">
-                                    <div className="item-advantages__icon">
-                                        <img src={item.imageUrl} alt="Advantage-Icon"/>
+        <Element name={"advantagesBlock"}>
+            <section className="section__advantages advantages">
+                <div className="advantages__container">
+                    <div className="advantages__body">
+                        <div className="advantages__info">
+                            <h2 className="advantages__title section-title">Advantages of our product</h2>
+                            <p className="advantages__text item-text">Advantages of our product compared to other
+                                competitors.</p>
+                        </div>
+                        <div className="advantages__inner">
+                            {advantagesConfig.map((item) => {
+                                return <div key={item.title} className="advantages__item item-advantages">
+                                    <div className="item-advantages__info">
+                                        <div className="item-advantages__icon">
+                                            <img src={item.imageUrl} alt="Advantage-Icon"/>
+                                        </div>
+                                        <h3 className="item-advantages__title">
+                                            {item.title}
+                                            {item.isNew && (
+                                                <span>New!</span>
+                                            )}
+                                        </h3>
                                     </div>
-                                    <h3 className="item-advantages__title">
-                                        {item.title}
-                                        {item.isNew && (
-                                            <span>New!</span>
-                                        )}
-                                    </h3>
+                                    <p className="item-advantages__text">{item.text}</p>
                                 </div>
-                                <p className="item-advantages__text">{item.text}</p>
-                            </div>
-                        })}
+                            })}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </Element>
     );
 };
 

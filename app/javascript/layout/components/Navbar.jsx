@@ -1,6 +1,5 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
-
+import {NavLink, useLocation, useNavigate} from "react-router-dom";
 export const navConfig = [
     {
         link: "/",
@@ -28,15 +27,43 @@ export const navConfig = [
     }
 ]
 
-const Navbar = ({isBurger}) => {
+
+
+const Navbar = ({isBurger, scrollToBlock, onClickToBurger}) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const handleMenuClick = (blockId) => {
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => scrollToBlock(blockId), 2000)
+        } else {
+            scrollToBlock(blockId);
+        }
+        if (isBurger) {
+            onClickToBurger();
+        }
+    };
     return (
         <nav className="header__menu menu">
             <ul className={`menu__list ${isBurger && "_active"}`}>
-                {navConfig.map((item, i) => (
-                    <li key={i} className="menu__item">
-                        <NavLink to={item.link} key={i} className="menu__link link">{item.text}</NavLink>
-                    </li>
-                ))}
+                <li className="menu__item">
+                    <button className="menu__link link" onClick={() => handleMenuClick("advantagesBlock")}>Advantages</button>
+                </li>
+                <li className="menu__item">
+                    <NavLink to="/" className="menu__link link">Compatibility</NavLink>
+                </li>
+                <li className="menu__item">
+                    <NavLink to="/pricing" className="menu__link link">Pricing</NavLink>
+                </li>
+                <li className="menu__item">
+                    <button className="menu__link link" onClick={() => handleMenuClick("faqBlock")}>FAQ</button>
+                </li>
+                <li className="menu__item">
+                    <NavLink to="/privacy" className="menu__link link">Use Policy</NavLink>
+                </li>
+                <li className="menu__item">
+                    <NavLink to="/" className="menu__link link">Download</NavLink>
+                </li>
             </ul>
         </nav>
     );

@@ -3,10 +3,10 @@ import Header from "./components/Header";
 import {Outlet} from "react-router-dom"
 import Footer from "./components/Footer";
 
-const Layout = () => {
+const Layout = ({scrollToBlock}) => {
     return (
         <div className={"wrapper"}>
-            <Header/>
+            <Header scrollToBlock={scrollToBlock}/>
             <main>
                 <Outlet/>
             </main>

@@ -13,7 +13,7 @@ const DatePickerModal = ({openNewModal, options}) => {
         options.onClose()
     }
     return (
-        <Modal {...options}>
+        <Modal isBig {...options}>
             <Modal.Logo>
                <Logo classnames={"popup__logo"} imageUrl={"/images/logo.svg"}/>
             </Modal.Logo>

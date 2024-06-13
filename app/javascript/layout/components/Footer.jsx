@@ -12,10 +12,10 @@ const Footer = () => {
                     <Logo imageUrl={"/images/footer-logo.svg"} classnames={"footer__logo"} />
                     <FooterNavbar/>
                     <div className="footer__block">
-                        <a href="/" className="footer__social">
+                        <a href="https://x.com/GatherumApp" className="footer__social">
                             <FaXTwitter/>
                         </a>
-                        <a href="/" className="footer__social">
+                        <a href="https://medium.com/@Gatherum" className="footer__social">
                             <RiMediumFill/>
                         </a>
                     </div>

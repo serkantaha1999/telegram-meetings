@@ -5,7 +5,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
-gem "puma", ">= 5.0"
+gem "puma", ">= 6.0"
 gem "jsbundling-rails"
 gem 'geocoder'
 gem 'telegram-bot-ruby'
@@ -29,7 +29,7 @@ group :development do
   gem 'web-console', '~> 4.2'
 
   gem 'capistrano',         require: false
-  gem 'capistrano3-puma', '~> 5.2.0', require: false
+  gem 'capistrano3-puma', '~> 6.0.0.alpha.1', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-rvm',     require: false

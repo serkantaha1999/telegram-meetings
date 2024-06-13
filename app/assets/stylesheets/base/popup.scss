@@ -46,10 +46,10 @@
 	}
 	&__close {
 		position: absolute;
-		right: rem(38);
-		top: rem(30);
-		width: rem(8);
-		height: rem(8);
+		right: rem(20);
+		top: rem(10);
+		width: rem(40);
+		height: rem(40);
 		transition: all .1s ease-in;
 		@media (any-hover: hover){
 			&:hover{

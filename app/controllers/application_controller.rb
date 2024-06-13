@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_bot
-    token = '7364905426:AAGJW6a-aCgXMIlYHVIskssLGtv1jH9Szwg'
+    token = '7466068642:AAEHZyN_dMfQzImWfYtH0o0UIqlg98xC8r4'
 
     @bot = Telegram::Bot::Client.new(token)
   end

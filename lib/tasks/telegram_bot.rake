@@ -3,8 +3,8 @@ namespace :telegram do
   task bot: :environment do
     require 'telegram/bot'
 
-    TOKEN = '7364905426:AAGJW6a-aCgXMIlYHVIskssLGtv1jH9Szwg'
-    creator_id = 758253110
+    TOKEN = '7466068642:AAEHZyN_dMfQzImWfYtH0o0UIqlg98xC8r4'
+    creator_id = 7009629638
 
     Telegram::Bot::Client.run(TOKEN) do |bot|
       bot.listen do |message|
@@ -17,7 +17,7 @@ namespace :telegram do
             else
               if message.from.id == creator_id
                 text = message.text.downcase
-                chat_id =  message.chat.id
+                chat_id = message.chat.id
                 if text.present? && text.include?('code -')
                   code = text.split(' ')
 

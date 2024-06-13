@@ -29,7 +29,7 @@ group :development do
   gem 'web-console', '~> 4.2'
 
   gem 'capistrano', require: false
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', ">= 5.0"
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rvm', require: false

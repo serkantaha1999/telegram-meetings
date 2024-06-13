@@ -368,7 +368,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano-sidekiq
   capistrano-yarn
-  capistrano3-puma
+  capistrano3-puma (>= 5.0)
   capybara
   carrierwave (~> 3.0)
   cssbundling-rails

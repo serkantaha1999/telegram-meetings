@@ -18,8 +18,13 @@ namespace :telegram do
               if message.from.id == creator_id
                 text = message.text.downcase
                 chat_id = message.chat.id
-                if text.present? && text.include?('code -')
+                if text.present? && text.include?('code -') && text.include?(' - ')
                   code = text.split(' ')
+
+                  if code.length != 5
+                    bot.api.send_message(text: 'Sorry your format is wrong. Please enter: code - Gxxxxx (x - number) - @username (Worker)', chat_id:)
+                    next
+                  end
 
                   if code[2].size == 6 && code[2].start_with?('g')
                     if Meeting.find_by(code: code[2]).present?
@@ -27,13 +32,13 @@ namespace :telegram do
                       next
                     end
 
-                    Meeting.create(code: code[2], name: "#{message.from.first_name} #{message.from.last_name}" || "#{message.from.username}")
+                    Meeting.create(code: code[2], name: code[4])
 
                     bot.api.send_message(text: 'Great! You created a new meeting!', chat_id:)
                     next
                   end
 
-                  bot.api.send_message(text: 'Sorry your format is wrong. Please enter: code - Gxxxxx (x - number)', chat_id:)
+                  bot.api.send_message(text: 'Sorry your format is wrong. Please enter: code - Gxxxxx (x - number) - @username (Worker)', chat_id:)
                 else
                   bot.api.send_message(text: 'Please enter: code - Gxxxxx (x - number) to create new ref system!', chat_id:)
                 end

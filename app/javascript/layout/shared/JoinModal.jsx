@@ -24,7 +24,7 @@ const JoinModal = ({openNewModal, options}) => {
         try {
             let response = await axios.post("/telegram_send_message", data)
             setResponse(response)
-            if (response.status === 200) {
+            if (response.data.success) {
                 options.onClose()
                 handleDownload(openNewModal);
             }

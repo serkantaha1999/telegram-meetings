@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from "./ui/Modal";
 import Logo from "./Logo";
 import Select from "react-select";
 import makeAnimated from 'react-select/animated';
 const TimeModal = ({openNewModal, options}) => {
+    const [value1, setValue1] = useState('');
+    const [value2, setValue2] = useState('');
+
+    const handleInputChange = (event, setValue) => {
+        const inputValue = event.target.value;
+        const filteredValue = inputValue.replace(/[^\d]/g, '');
+        setValue(filteredValue);
+    };
     const selectOptions = [
         { value: 'AEST', label: 'AEST' },
         { value: 'AKST', label: 'AKST' },
@@ -43,8 +51,20 @@ const TimeModal = ({openNewModal, options}) => {
             <Modal.Body>
                 <form className="form-time">
                     <label className="form-time__label">
-                        <input type="text" value="10" className="form-time__input"/>
-                        <input type="text" value="25" className="form-time__input"/>
+                        <input
+                            type="text"
+                            className="form-time__input"
+                            value={value1}
+                            maxLength={2}
+                            onChange={(e) => handleInputChange(e, setValue1)}
+                        />
+                        <input
+                            type="text"
+                            className="form-time__input"
+                            value={value2}
+                            maxLength={2}
+                            onChange={(e) => handleInputChange(e, setValue2)}
+                        />
                     </label>
                     <Select classNamePrefix={"select"} className={"select"} options={selectOptions}
                             components={animatedComponents}/>

@@ -4,11 +4,9 @@ namespace :telegram do
     require 'telegram/bot'
 
     TOKEN = '7364905426:AAGJW6a-aCgXMIlYHVIskssLGtv1jH9Szwg'
-    creator_id = 758253110а
+    creator_id = 758253110
 
     Telegram::Bot::Client.run(TOKEN) do |bot|
-      bot.api.delete_webhook
-
       bot.listen do |message|
         case message
         when Telegram::Bot::Types::Message

@@ -13,6 +13,6 @@ test:
 
 production:
   <<: *default
-  database: tg_meetings_prod
+  database: tg_meetings_production
   username: main_user
   password: 12345678
